@@ -23,6 +23,7 @@ export default class DetailedStatus extends ImmutablePureComponent {
     onOpenMedia: PropTypes.func.isRequired,
     onOpenVideo: PropTypes.func.isRequired,
     onToggleHidden: PropTypes.func.isRequired,
+    highlightKeywords: ImmutablePropTypes.map.isRequired,
   };
 
   handleAccountClick = (e) => {
@@ -111,7 +112,7 @@ export default class DetailedStatus extends ImmutablePureComponent {
           <DisplayName account={status.get('account')} />
         </a>
 
-        <StatusContent status={status} expanded={!status.get('hidden')} onExpandedToggle={this.handleExpandedToggle} />
+        <StatusContent status={status} expanded={!status.get('hidden')} onExpandedToggle={this.handleExpandedToggle} highlightKeywords={this.props.highlightKeywords} />
 
         {media}
 

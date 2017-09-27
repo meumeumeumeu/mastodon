@@ -754,6 +754,11 @@ ja:
     settings: 設定
     two_factor_authentication: 二段階認証
     your_apps: アプリ
+    highlight_keywords: ハイライトキーワード
+  highlight_keywords:
+    name_of_word: ワード名
+    delete: 削除
+    description: 設定したキーワードは強調表示され、ブラウザで通知されるようになります。
   statuses:
     attached:
       description: '添付: %{attached}'

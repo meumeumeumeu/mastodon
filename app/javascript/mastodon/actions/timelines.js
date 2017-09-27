@@ -1,6 +1,7 @@
 import { importFetchedStatus, importFetchedStatuses } from './importer';
 import api, { getLinks } from '../api';
 import { Map as ImmutableMap, List as ImmutableList } from 'immutable';
+import { checkHighlightNotification } from './highlight_keywords';
 
 export const TIMELINE_UPDATE  = 'TIMELINE_UPDATE';
 export const TIMELINE_DELETE  = 'TIMELINE_DELETE';
@@ -21,6 +22,8 @@ export function updateTimeline(timeline, status, accept) {
     }
 
     dispatch(importFetchedStatus(status));
+
+    dispatch(checkHighlightNotification(status));
 
     dispatch({
       type: TIMELINE_UPDATE,

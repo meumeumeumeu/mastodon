@@ -117,6 +117,9 @@ Rails.application.routes.draw do
     get :player
   end
 
+    resources :highlight_keywords, only: [:index, :create, :destroy]
+  end
+
   resources :tags,   only: [:show]
   resources :emojis, only: [:show]
   resources :invites, only: [:index, :create, :destroy]
@@ -347,6 +350,10 @@ Rails.application.routes.draw do
 
     namespace :v2 do
       get '/search', to: 'search#index', as: :search
+    end
+
+      resources :highlight_keywords, only: [:index]
+      post '/votes/:status_id', to: 'votes#create'
     end
 
     namespace :web do

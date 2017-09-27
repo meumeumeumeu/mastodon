@@ -102,7 +102,6 @@ class Account < ApplicationRecord
   # Report relationships
   has_many :reports
   has_many :targeted_reports, class_name: 'Report', foreign_key: :target_account_id
-
   has_many :report_notes, dependent: :destroy
   has_many :custom_filters, inverse_of: :account, dependent: :destroy
 
@@ -116,6 +115,8 @@ class Account < ApplicationRecord
 
   # Account migrations
   belongs_to :moved_to_account, class_name: 'Account', optional: true
+
+  has_many :highlight_keywords, inverse_of: :account, dependent: :destroy
 
   scope :remote, -> { where.not(domain: nil) }
   scope :local, -> { where(domain: nil) }

@@ -237,6 +237,13 @@ ActiveRecord::Schema.define(version: 2018_10_26_034033) do
     t.index ["user_id"], name: "index_identities_on_user_id"
   end
 
+  create_table "highlight_keywords", force: :cascade do |t|
+    t.bigint "account_id", null: false
+    t.string "word"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_highlight_keywords_on_account_id"
+  end
   create_table "imports", force: :cascade do |t|
     t.integer "type", null: false
     t.boolean "approved", default: false, null: false
@@ -643,6 +650,7 @@ ActiveRecord::Schema.define(version: 2018_10_26_034033) do
   add_foreign_key "follow_requests", "accounts", name: "fk_76d644b0e7", on_delete: :cascade
   add_foreign_key "follows", "accounts", column: "target_account_id", name: "fk_745ca29eac", on_delete: :cascade
   add_foreign_key "follows", "accounts", name: "fk_32ed1b5560", on_delete: :cascade
+  add_foreign_key "highlight_keywords", "accounts", on_delete: :cascade
   add_foreign_key "identities", "users", on_delete: :cascade
   add_foreign_key "imports", "accounts", name: "fk_6db1b6e408", on_delete: :cascade
   add_foreign_key "invites", "users", on_delete: :cascade

@@ -45,6 +45,7 @@ const makeMapStateToProps = () => {
 
   const mapStateToProps = (state, props) => ({
     status: getStatus(state, props),
+    highlightKeywords: state.get('highlight_keywords'),
   });
 
   return mapStateToProps;

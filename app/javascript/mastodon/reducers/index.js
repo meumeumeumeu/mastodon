@@ -29,7 +29,7 @@ import listAdder from './list_adder';
 import filters from './filters';
 import conversations from './conversations';
 import suggestions from './suggestions';
-
+import highlight_keywords from './highlight_keywords';
 const reducers = {
   dropdown_menu,
   timelines,
@@ -61,6 +61,7 @@ const reducers = {
   filters,
   conversations,
   suggestions,
+  highlight_keywords,
 };
 
 export default combineReducers(reducers);

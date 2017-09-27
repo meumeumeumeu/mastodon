@@ -755,6 +755,11 @@ en:
     settings: Settings
     two_factor_authentication: Two-factor Auth
     your_apps: Your applications
+    highlight_keywords: Hightlight keywords
+  highlight_keywords:
+    name_of_word: Name of word
+    delete: delete
+    description: Your keywords will be highlighted in orange. In addition, you can receive keyword notifications.
   statuses:
     attached:
       description: 'Attached: %{attached}'

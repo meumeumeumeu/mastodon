@@ -103,6 +103,9 @@ const makeMapStateToProps = () => {
       askReplyConfirmation: state.getIn(['compose', 'text']).trim().length !== 0,
     };
   };
+  const mapStateToProps = (state, props) => ({
+    highlightKeywords: state.get('highlight_keywords'),
+  });
 
   return mapStateToProps;
 };
@@ -387,7 +390,7 @@ class Status extends ImmutablePureComponent {
 
   render () {
     let ancestors, descendants;
-    const { shouldUpdateScroll, status, ancestorsIds, descendantsIds, intl } = this.props;
+    const { shouldUpdateScroll, status, ancestorsIds, descendantsIds, highlightKeywords, intl } = this.props;
     const { fullscreen } = this.state;
 
     if (status === null) {
@@ -438,6 +441,7 @@ class Status extends ImmutablePureComponent {
                   onOpenVideo={this.handleOpenVideo}
                   onOpenMedia={this.handleOpenMedia}
                   onToggleHidden={this.handleToggleHidden}
+                  highlightKeywords={highlightKeywords}
                 />
 
                 <ActionBar

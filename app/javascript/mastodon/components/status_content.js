@@ -7,6 +7,8 @@ import Permalink from './permalink';
 import classnames from 'classnames';
 
 const MAX_HEIGHT = 642; // 20px * 32 (+ 2px padding at the top)
+import EnqueteContainer from '../features/enquete/containers/enquete_content_container';
+import { addHighlight } from '../actions/highlight_keywords';
 
 export default class StatusContent extends React.PureComponent {
 
@@ -20,6 +22,7 @@ export default class StatusContent extends React.PureComponent {
     onExpandedToggle: PropTypes.func,
     onClick: PropTypes.func,
     collapsable: PropTypes.bool,
+    highlightKeywords: ImmutablePropTypes.map,
   };
 
   state = {
@@ -137,16 +140,15 @@ export default class StatusContent extends React.PureComponent {
   }
 
   render () {
-    const { status } = this.props;
+    const { status, highlightKeywords } = this.props;
 
     if (status.get('content').length === 0) {
       return null;
     }
 
     const hidden = this.props.onExpandedToggle ? !this.props.expanded : this.state.hidden;
-
-    const content = { __html: status.get('contentHtml') };
-    const spoilerContent = { __html: status.get('spoilerHtml') };
+    const content = { __html: addHighlight(status.get('contentHtml'), this.props.highlightKeywords) };
+    const spoilerContent = { __html: addHighlight(`<p>${status.get('spoilerHtml')}</p>`, this.props.highlightKeywords) };
     const directionStyle = { direction: 'ltr' };
     const classNames = classnames('status__content', {
       'status__content--with-action': this.props.onClick && this.context.router,
@@ -189,11 +191,29 @@ export default class StatusContent extends React.PureComponent {
 
           {mentionsPlaceholder}
 
-          <div tabIndex={!hidden ? 0 : null} className={`status__content__text ${!hidden ? 'status__content__text--visible' : ''}`} style={directionStyle} dangerouslySetInnerHTML={content} />
+          {status.get('enquete') ?
+            <div tabIndex={!hidden && 0} className={`status__content__text ${!hidden ? 'status__content__text--visible' : ''}`} style={directionStyle} >
+              <EnqueteContainer status={status} highlightKeywords={highlightKeywords} />
+            </div> :
+            <div tabIndex={!hidden && 0} className={`status__content__text ${!hidden ? 'status__content__text--visible' : ''}`} style={directionStyle} dangerouslySetInnerHTML={content} />
+          }
         </div>
       );
     } else if (this.props.onClick) {
-      const output = [
+      if (status.get('enquete')) {
+        return (
+          <div
+            ref={this.setRef}
+            className='status__content status__content--with-action'
+            style={directionStyle}
+            onMouseDown={this.handleMouseDown}
+            onMouseUp={this.handleMouseUp}
+          >
+            <EnqueteContainer status={status} highlightKeywords={highlightKeywords} />
+          </div>
+        );
+      }
+      return (
         <div
           ref={this.setRef}
           tabIndex='0'
@@ -203,9 +223,21 @@ export default class StatusContent extends React.PureComponent {
           dangerouslySetInnerHTML={content}
           onMouseDown={this.handleMouseDown}
           onMouseUp={this.handleMouseUp}
+          dangerouslySetInnerHTML={content}
         />,
       ];
-
+  } else {
+    if (status.get('enquete')) {
+      return (
+        <div
+          ref={this.setRef}
+          className='status__content'
+          style={directionStyle}
+        >
+          <EnqueteContainer status={status} highlightKeywords={highlightKeywords} />
+        </div>
+      );
+    }
       if (this.state.collapsed) {
         output.push(readMoreButton);
       }
