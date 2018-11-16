@@ -117,8 +117,8 @@ Rails.application.routes.draw do
     get :player
   end
 
-    resources :highlight_keywords, only: [:index, :create, :destroy]
-  end
+  resources :highlight_keywords, only: [:index, :create, :destroy]
+
 
   resources :tags,   only: [:show]
   resources :emojis, only: [:show]
