@@ -6,16 +6,17 @@ import { changeColumnParams } from '../../../actions/columns';
 const mapStateToProps = (state, { columnId }) => {
   const uuid = columnId;
   const columns = state.getIn(['settings', 'columns']);
-  const index = columns.findIndex(c => c.get('uuid') === uuid)};
-const mapStateToProps = state => ({
-  settings: state.getIn(['settings', 'community']),
-  highlight_keywords: state.get('highlight_keywords'),
-});
+  const index = columns.findIndex(c => c.get('uuid') === uuid);
 
   return {
     settings: (uuid && index >= 0) ? columns.get(index).get('params') : state.getIn(['settings', 'community']),
   };
 };
+
+const mapStateToProps = state => ({
+  settings: state.getIn(['settings', 'community']),
+  highlight_keywords: state.get('highlight_keywords'),
+});
 
 const mapDispatchToProps = (dispatch, { columnId }) => {
   return {
