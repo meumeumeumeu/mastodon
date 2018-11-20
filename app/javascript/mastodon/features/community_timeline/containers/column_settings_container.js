@@ -10,13 +10,9 @@ const mapStateToProps = (state, { columnId }) => {
 
   return {
     settings: (uuid && index >= 0) ? columns.get(index).get('params') : state.getIn(['settings', 'community']),
+    highlight_keywords: state.get('highlight_keywords'),
   };
 };
-
-const mapStateToProps = state => ({
-  settings: state.getIn(['settings', 'community']),
-  highlight_keywords: state.get('highlight_keywords'),
-});
 
 const mapDispatchToProps = (dispatch, { columnId }) => {
   return {
