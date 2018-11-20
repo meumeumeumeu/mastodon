@@ -100,12 +100,10 @@ const makeMapStateToProps = () => {
       status,
       ancestorsIds,
       descendantsIds,
+      highlightKeywords: state.get('highlight_keywords'),
       askReplyConfirmation: state.getIn(['compose', 'text']).trim().length !== 0,
     };
   };
-  const mapStateToProps = (state, props) => ({
-    highlightKeywords: state.get('highlight_keywords'),
-  });
 
   return mapStateToProps;
 };
