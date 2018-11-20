@@ -225,7 +225,7 @@ export default class StatusContent extends React.PureComponent {
           onMouseUp={this.handleMouseUp}
           dangerouslySetInnerHTML={content}
         />,
-      ;
+      );
   } else {
     if (status.get('enquete')) {
       return (
