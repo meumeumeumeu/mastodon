@@ -7,7 +7,6 @@ ar:
     administered_by: 'يُديره :'
     api: واجهة برمجة التطبيقات
     apps: تطبيقات الأجهزة المحمولة
-    closed_registrations: التسجيلات في مثيل الخادوم هذا مُغلقة حاليًا. غير أنه بامكانك العثور على خادم آخر لإنشاء حسابك و مِن ثم النفاذ إلى نفس الشبكة مِن هناك.
     contact: للتواصل معنا
     contact_missing: لم يتم تعيينه
     contact_unavailable: غير متوفر
@@ -15,19 +14,9 @@ ar:
     extended_description_html: |
       <h3>مكان جيد للقواعد</h3>
       <p>لم يتم بعد إدخال الوصف الطويل.</p>
-    features:
-      humane_approach_body: تعلُّمًا مِن فشل الشبكات الأخرى، غاية ماستدون هي بلوغ الخيارات الأخلاقية في التصميم لمُحارَبة إسائة إستعمال شبكات التواصل الإجتماعية.
-      humane_approach_title: أسلوب يُعيد الإعتبار للفَرد
-      not_a_product_body: ماستدون ليس شبكة تجارية. لا يحتوي على إعلانات و لا يقوم باستغلال البيانات و لا هو بِبُستان مُسيَّج. لا تحكم فيه وليس له أية هيئةٍ مركزيةٍ.
-      not_a_product_title: إنك فرد و لست سلعة
-      real_conversation_body: يُمكنكم التعبير عن آرائكم بكل حرية بفضل 500 حرف و انتقاء دقيق للمحتوى و الوسائط بفضل أدوات التحذير التي هي بين أيديكم.
-      real_conversation_title: مبني لتحقيق تواصل حقيقي
-      within_reach_body: إبقوا على اتصال دائم بأصدقائكم حيثما كانوا عبر عدة تطبيقات لنظام آي أواس و أندرويد و عدة منصات أخرى بفضل واجهة برمجية للتطبيقات و بيئة صديقة للتطوير.
-      within_reach_title: في مُتناوَل يدك دائمًا
     generic_description: "%{domain} هو سيرفر من بين سيرفرات الشبكة"
     hosted_on: ماستدون مُستضاف على %{domain}
     learn_more: تعلم المزيد
-    other_instances: خوادم أخرى
     privacy_policy: سياسة الخصوصية
     source_code: الشفرة المصدرية
     status_count_after:
@@ -88,6 +77,7 @@ ar:
   admin:
     account_actions:
       action: تنفيذ الاجراء
+      title: اتخاذ إجراء إشراف على %{acct}
     account_moderation_notes:
       create: إترك ملاحظة
       created_msg: تم إنشاء ملاحظة الإشراف بنجاح !
@@ -107,6 +97,7 @@ ar:
       confirm: تأكيد
       confirmed: مؤكَّد
       confirming: التأكد
+      deleted: تمت إزالته
       demote: إنزال الرُتبة الوظيفية
       disable: تعطيل
       disable_two_factor_authentication: تعطيل المصادقة بخطوتين
@@ -124,7 +115,9 @@ ar:
       follows: يتابع
       header: الرأسية
       inbox_url: رابط صندوق الوارد
+      invited_by: تمت دعوته مِن طرف
       ip: عنوان الإيبي
+      joined: انضم
       location:
         all: الكل
         local: المحلي
@@ -151,7 +144,7 @@ ar:
       protocol: البروتوكول
       public: عمومي
       push_subscription_expires: انتهاء الاشتراك ”PuSH“
-      redownload: تحديث الصورة الرمزية
+      redownload: تحديث الصفحة الشخصية
       remove_avatar: حذف الصورة الرمزية
       remove_header: حذف الرأسية
       resend_confirmation:
@@ -172,24 +165,26 @@ ar:
       shared_inbox_url: رابط الصندوق المُشترَك للبريد الوارد
       show:
         created_reports: البلاغات التي أنشأها هذا الحساب
-        targeted_reports: الشكاوي التي أُنشِأت ضد هذا الحساب
+        targeted_reports: الشكاوي التي أُنشِأت مِن طرف الآخَرين
       silence: كتم
       silenced: تم كتمه
       statuses: المنشورات
       subscribe: اشترك
       suspended: تم تعليقه
       title: الحسابات
-      unconfirmed_email: البريد الإلكتروني غير المؤكد
+      unconfirmed_email: البريد الإلكتروني غير مؤكد
       undo_silenced: رفع الصمت
       undo_suspension: إلغاء تعليق الحساب
       unsubscribe: إلغاء الاشتراك
       username: إسم المستخدم
+      warn: تحذير
       web: الويب
     action_logs:
       actions:
         assigned_to_self_report: قام %{name} بتعيين التقرير %{target} لأنفسهم
         change_email_user: غيّر %{name} عنوان البريد الإلكتروني للمستخدم %{target}
         confirm_user: "%{name} قد قام بتأكيد عنوان البريد الإلكتروني لـ %{target}"
+        create_account_warning: قام %{name} بإرسال تحذير إلى %{target}
         create_custom_emoji: "%{name} قام برفع إيموجي جديد %{target}"
         create_domain_block: "%{name} قام بحجب نطاق %{target}"
         create_email_domain_block: "%{name} قد قام بحظر نطاق البريد الإلكتروني %{target}"
@@ -266,7 +261,7 @@ ar:
       week_users_active: نشط هذا الأسبوع
       week_users_new: مستخدِمين هذا الأسبوع
     domain_blocks:
-      add_new: إضافة نطاق جديد
+      add_new: إضافة حجب جديد لنطاق
       created_msg: إنّ حجب النطاق حيز التشغيل
       destroyed_msg: تم إلغاء الحجب المفروض على النطاق
       domain: النطاق
@@ -282,6 +277,9 @@ ar:
       reject_media: رفض ملفات الوسائط
       reject_media_hint: يزيل ملفات الوسائط المخزنة محليًا ويرفض تنزيل أي ملفات في المستقبل. غير ذي صلة للتعليق
       reject_reports: رفض التقارير
+      severity:
+        silence: تم كتمه
+        suspend: تم تعليقه
       show:
         affected_accounts:
           few: "%{count} حسابات معنية في قاعدة البيانات"
@@ -295,7 +293,7 @@ ar:
           suspend: إلغاء التعليق المفروض على كافة حسابات هذا النطاق
         title: رفع حظر النطاق عن %{domain}
         undo: إلغاء
-      undo: إلغاء
+      undo: إلغاء حجب النطاق
     email_domain_blocks:
       add_new: إضافة
       created_msg: لقد دخل حظر نطاق البريد الإلكتروني حيّز الخدمة
@@ -308,8 +306,26 @@ ar:
       title: القائمة السوداء للبريد الإلكتروني
     followers:
       back_to_account: العودة إلى الحساب
+      title: "%{acct} مُتابِعون"
     instances:
-      title: مثيلات الخوادم المعروفة
+      by_domain: النطاق
+      delivery_available: التسليم متوفر
+      known_accounts:
+        few: "%{count} حسابات معروفة"
+        many: "%{count} حسابات معروفة"
+        one: حساب معروف %{count}
+        other: "%{count} حسابات معروفة"
+        two: "%{count} حسابات معروفة"
+        zero: "%{count} حسابات معروفة"
+      moderation:
+        all: كافتها
+        title: الإشراف
+      title: الفديرالية
+      total_blocked_by_us: المحجوبة مِن طرفنا
+      total_followed_by_them: يُتابِعونها
+      total_followed_by_us: التي نُتابِعها
+      total_reported: تقارير عنهم
+      total_storage: الوسائط المُرفَقة
     invites:
       deactivate_all: تعطيلها كافة
       filter:
@@ -400,9 +416,6 @@ ar:
         min_invite_role:
           disabled: لا أحد
           title: المستخدِمون المصرح لهم لإرسال الدعوات
-        open:
-          desc_html: السماح للجميع بإنشاء حساب
-          title: فتح التسجيل
       show_known_fediverse_at_about_page:
         desc_html: عند التثبت ، سوف تظهر toots من جميع fediverse المعروفة على عرض مسبق. وإلا فإنه سيعرض فقط toots المحلية.
         title: إظهار الفيديفرس الموحَّد في خيط المُعايَنة
@@ -485,7 +498,6 @@ ar:
     warning: كن حذرا مع هذه البيانات. لا تقم أبدا بمشاركتها مع الآخَرين !
     your_token: رمز نفاذك
   auth:
-    agreement_html: بمجرد النقر على "التسجيل" أسفله، فإنك تُصرِّح قبول <a href="%{rules_path}">قواعد مثيل الخادوم</a> و <a href="%{terms_path}">شروط الخدمة التي نوفرها لك</a>.
     change_password: الكلمة السرية
     confirm_email: تأكيد عنوان البريد الإلكتروني
     delete_account: حذف حساب
@@ -497,13 +509,11 @@ ar:
     logout: خروج
     migrate_account: الإنتقال إلى حساب آخر
     migrate_account_html: إن كنت ترغب في تحويل هذا الحساب نحو حساب آخَر، يُمكِنُك <a href="%{path}">إعداده هنا</a>.
-    or: أو
     or_log_in_with: أو قم بتسجيل الدخول بواسطة
     providers:
       cas: CAS
       saml: SAML
     register: إنشاء حساب
-    register_elsewhere: التسجيل على خادوم آخَر
     resend_confirmation: إعادة إرسال تعليمات التأكيد
     reset_password: إعادة تعيين كلمة المرور
     security: الأمان
@@ -541,6 +551,7 @@ ar:
     warning_title: توافر المحتوى المنشور و المبعثَر
   directories:
     directory: سِجلّ الحسابات
+    enabled: إنّ حسابك الآن ضمن فهرس المستخدِمين.
     explanation: استكشف مستخدِمين آخرين حسب المواضيع التي تهمهم
     explore_mastodon: استكشف %{title}
     people:
@@ -572,9 +583,13 @@ ar:
       size: الحجم
     blocks: قمت بحظر
     csv: CSV
+    domain_blocks: النطاقات المحظورة
     follows: أنت تتبع
+    lists: القوائم
     mutes: قُمتَ بكتم
     storage: ذاكرة التخزين
+  featured_tags:
+    add_new: إضافة واحد
   filters:
     contexts:
       home: الخيط الزمني الرئيسي
@@ -591,15 +606,6 @@ ar:
       title: عوامل التصفية
     new:
       title: إضافة عامل تصفية جديد
-  followers:
-    domain: النطاق
-    followers_count: عدد المتابِعين
-    lock_link: قم بتجميد حسابك
-    purge: تنحية من بين متابعيك
-    success: جارية عملية حظر المتابِعين بسلاسة من %{count} نطاقات أخرى ...
-    true_privacy_html: تذكر دائمًا أنّ <strong>الخصوصية التامة لا يمكن بلوغها إلّا بالتعمية و التشفير من طرف إلى آخَر</strong>.
-    unlocked_warning_html: يمكن لأي كان متابعة حسابك و الإطلاع مباشرة على تبويقاتك. إستخدِم %{lock_link} لمُعاينة أو رفض طلبات المتابِعين الجُدُد.
-    unlocked_warning_title: إنّ حسابك غير مقفل
   footer:
     developers: المطورون
     more: المزيد …
@@ -616,10 +622,16 @@ ar:
       two: هناك شيء ما ليس على ما يرام! يُرجى مراجعة الأخطاء الـ %{count} أدناه
       zero: هناك شيء ما ليس على ما يرام! يُرجى مراجعة الأخطاء الـ %{count} أدناه
   imports:
+    modes:
+      merge: دمج
+      merge_long: الإبقاء علي التسجيلات الحالية وإضافة الجديدة
+      overwrite: إعادة الكتابة
+      overwrite_long: استبدال التسجيلات الحالية بالجديدة
     preface: بإمكانك استيراد بيانات قد قُمتَ بتصديرها مِن مثيل خادوم آخَر، كقوائم المستخدِمين الذين كنتَ تتابِعهم أو قُمتَ بحظرهم.
     success: تم تحميل بياناتك بنجاح وسيتم معالجتها في الوقت المناسب
     types:
       blocking: قائمة المحظورين
+      domain_blocking: قائمة النطاقات المحظورة
       following: قائمة المستخدمين المتبوعين
       muting: قائمة الكتم
     upload: تحميل
@@ -669,11 +681,17 @@ ar:
       action: معاينة كافة الإشعارات
       body: هذا هو مُلَخَّص الرسائل التي فاتتك وذلك منذ آخر زيارة لك في  %{since}
       mention: "%{name} أشار إليك في :"
-      new_followers_summary: رائع، لقد قام بمتابعتك %{count} مُتابِعون جُدد أثناء فترة غيابك عن ماستدون !
+      new_followers_summary:
+        few: رائع، لقد قام بمتابَعتك %{count} مُتابِعون جُدد أثناء فترة غيابك عن ماستدون!
+        many: رائع، لقد قام بمتابَعتك %{count} مُتابِعون جُدد أثناء فترة غيابك عن ماستدون!
+        one: و لقد تحصّلتَ كذلك على مُتابِع آخَر بينما كنتَ غائبًا! هذا شيء رائع!
+        other: رائع، لقد قام بمتابَعتك %{count} مُتابِعون جُدد أثناء فترة غيابك عن ماستدون!
+        two: رائع، لقد قام بمتابَعتك %{count} مُتابِعون جُدد أثناء فترة غيابك عن ماستدون!
+        zero: رائع، لقد قام بمتابَعتك %{count} مُتابِعون جُدد أثناء فترة غيابك عن ماستدون!
       subject:
         few: "%{count} إشعارات جديدة منذ آخر زيارة لك إلى \U0001F418"
         many: "%{count} إشعارات جديدة منذ آخر زيارة لك إلى \U0001F418"
-        one: "إشعار واحد منذ آخر زيارة لك لـ \U0001F418"
+        one: "إشعار واحد 1 منذ آخر زيارة لك لـ \U0001F418"
         other: "%{count} إشعارات جديدة منذ آخر زيارة لك إلى \U0001F418"
         two: "إشعارات جديدة منذ آخر زيارة لك إلى \U0001F418"
         zero: "إشعارات جديدة منذ آخر زيارة لك إلى \U0001F418"
@@ -728,6 +746,16 @@ ar:
     no_account_html: أليس عندك حساب بعدُ ؟ يُمْكنك <a href='%{sign_up_path}' target='_blank'>التسجيل مِن هنا</a>
     proceed: أكمل المتابعة
     prompt: 'إنك  بصدد متابعة :'
+  remote_interaction:
+    favourite:
+      proceed: المواصلة إلى المفضلة
+      prompt: 'ترغب في إضافة هذا التبويق إلى مفضلتك:'
+    reblog:
+      proceed: المواصلة إلى الترقية
+      prompt: 'ترغب في ترقية هذا التبويق:'
+    reply:
+      proceed: المواصلة إلى الرد
+      prompt: 'ترغب في الرد على هذا التبويق:'
   remote_unfollow:
     error: خطأ
     title: العنوان
@@ -780,14 +808,11 @@ ar:
     development: التطوير
     edit_profile: تعديل الملف الشخصي
     export: تصدير البيانات
-    followers: المتابِعون المُرَخّصون
     import: إستيراد
     migrate: تهجير الحساب
     notifications: الإخطارات
     preferences: التفضيلات
-    settings: الإعدادات
     two_factor_authentication: المُصادقة بخُطوَتَيْن
-    your_apps: تطبيقاتك
   statuses:
     attached:
       description: 'مُرفَق : %{attached}'
@@ -870,6 +895,8 @@ ar:
       review_server_policies: مراجعة شروط السيرفر
       subject:
         disable: تم تجميد حسابك %{acct}
+        none: تحذير إلى %{acct}
+        suspend: لقد تم تعليق حسابك %{acct}
       title:
         disable: الحساب مُجمَّد
         none: تحذير

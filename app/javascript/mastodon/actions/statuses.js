@@ -131,26 +131,31 @@ export function fetchStatusFail(id, error, skipLoading) {
   };
 };
 
-export function redraft(status) {
+export function redraft(status, raw_text) {
   return {
     type: REDRAFT,
     status,
+    raw_text,
   };
 };
 
 export function deleteStatus(id, router, withRedraft = false) {
   return (dispatch, getState) => {
-    const status = getState().getIn(['statuses', id]);
+    let status = getState().getIn(['statuses', id]);
+
+    if (status.get('poll')) {
+      status = status.set('poll', getState().getIn(['polls', status.get('poll')]));
+    }
 
     dispatch(deleteStatusRequest(id));
 
-    api(getState).delete(`/api/v1/statuses/${id}`).then(() => {
+    api(getState).delete(`/api/v1/statuses/${id}`).then(response => {
       evictStatus(id);
       dispatch(deleteStatusSuccess(id));
       dispatch(deleteFromTimelines(id));
 
       if (withRedraft) {
-        dispatch(redraft(status));
+        dispatch(redraft(status, response.data.text));
 
         if (!getState().getIn(['compose', 'mounted'])) {
           router.push('/statuses/new');
