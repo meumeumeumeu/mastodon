@@ -5,7 +5,7 @@ class ReactionValidator < ActiveModel::Validator
 
   def validate(reaction)
     return if reaction.name.blank?
-
+    reaction.errors.add(:name, I18n.t('reactions.errors.unrecognized_emoji')) if reaction.custom_emoji_id.blank? && !unicode_emoji?(reaction.name)
     reaction.errors.add(:name, I18n.t('reactions.errors.unrecognized_emoji')) unless unicode_emoji?(reaction.name)
   end
 
