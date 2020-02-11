@@ -270,20 +270,25 @@ class ReactionsBar extends ImmutablePureComponent {
     })).toArray();
 
     return (
-      <div className={classNames('reactions-bar', { 'reactions-bar--empty': visibleReactions.isEmpty() })}>
-        {visibleReactions.map(reaction => (
-          <Reaction
-            key={reaction.get('name')}
-            reaction={reaction}
-            announcementId={this.props.announcementId}
-            addReaction={this.props.addReaction}
-            removeReaction={this.props.removeReaction}
-            emojiMap={this.props.emojiMap}
-          />
-        ))}
+    <TransitionMotion styles={styles} willEnter={this.willEnter} willLeave={this.willLeave}>
+        {items => (
+          <div className={classNames('reactions-bar', { 'reactions-bar--empty': visibleReactions.isEmpty() })}>
+            {items.map(({ key, data, style }) => (
+              <Reaction
+                key={key}
+                reaction={data}
+                style={{ transform: `scale(${style.scale})`, position: style.scale < 0.5 ? 'absolute' : 'static' }}
+                announcementId={this.props.announcementId}
+                addReaction={this.props.addReaction}
+                removeReaction={this.props.removeReaction}
+                emojiMap={this.props.emojiMap}
+              />
+            ))}
 
-        <EmojiPickerDropdown onPickEmoji={this.handleEmojiPick} button={<Icon id='plus' />} />
-      </div>
+            <EmojiPickerDropdown onPickEmoji={this.handleEmojiPick} button={<Icon id='plus' />} />
+          </div>
+        )}
+      </TransitionMotion>
     );
   }
 
